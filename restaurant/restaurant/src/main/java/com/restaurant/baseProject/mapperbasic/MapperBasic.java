@@ -3,9 +3,9 @@ package com.restaurant.baseProject.mapperbasic;
 import java.util.List;
 
 public interface MapperBasic<E, D> {
-    E convertEntity(D model);
-    List<E> convertEntity(List<D> models);
-    D convertDto(E entity);
-    List<D> convertDto(List<E> entities);
+    E convertToEntity(D model);
+    List<E> convertToEntity(List<D> models);
+    D convertToDto(E entity);
+    List<D> convertToDto(List<E> entities);
 
 }

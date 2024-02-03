@@ -42,9 +42,9 @@ public class SeedData implements ApplicationRunner {
         List<ColorEntity> listColor = colorService.findAll();
         List<CityEntity> listCity = cityService.findAll();
         List<MenuServiceEntity> listMenu = menuServiceService.findAll();
+        List<CountryEntity> countryEntities = new ArrayList<>();
 
         if (listCountry == null || listCountry.isEmpty()) {
-            List<CountryEntity> countryEntities = new ArrayList<>();
 
             CountryEntity countryIran = new CountryEntity();
             countryIran.setCountryName("ایران");
@@ -61,6 +61,8 @@ public class SeedData implements ApplicationRunner {
             for (CountryEntity country:countryEntities) {
                 countryService.saveOrUpdate(country);
             }
+        }else {
+            countryEntities=listCountry;
         }
 
         if (listColor == null || listColor.isEmpty()) {
@@ -87,6 +89,7 @@ public class SeedData implements ApplicationRunner {
 
             ProvinceEntity provinceGol = new ProvinceEntity();
             provinceGol.setProvinceName("گلستان");
+            provinceGol.setCountry(countryEntities.get(0));
             ProvinceEntity newProvinceGol = provinceService.saveOrUpdate(provinceGol);
 
             CityEntity cityGon = new CityEntity();
@@ -102,6 +105,7 @@ public class SeedData implements ApplicationRunner {
 
             ProvinceEntity provinceTeh = new ProvinceEntity();
             provinceTeh.setProvinceName("تهران");
+            provinceTeh.setCountry(countryEntities.get(0));
             ProvinceEntity newProvinceTeh = provinceService.saveOrUpdate(provinceTeh);
 
             CityEntity cityTeh = new CityEntity();

@@ -1,9 +1,9 @@
 package com.restaurant.baseEntity.province;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.restaurant.baseEntity.country.CountryEntity;
 import com.restaurant.baseProject.entitybasic.EntityBasic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name = "TBL_PROVINCE")
@@ -19,6 +19,11 @@ public class ProvinceEntity extends EntityBasic<Long> {
     private Integer provinceCode;
     @Column(name = "PROVINCE_NAME")
     private String provinceName;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "COUNTRY_ID", nullable = false)
+    @JsonIgnore
+    private CountryEntity country;
 
 }
 

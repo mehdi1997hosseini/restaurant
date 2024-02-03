@@ -1,0 +1,34 @@
+*,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: auto;
+    background-color: #494949;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hidden-overFlow{
+    overflow: hidden;
+}
+
